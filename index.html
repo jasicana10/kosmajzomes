@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kosmaj Zomes — glamping kupola, Dučina</title>
+<meta name="description" content="Geodetska kupola sa đakuzijem i pogledom na Kosmaj. Rezervišite noćenje za dve osobe.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&amp;family=Cormorant+Garamond:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@300;400;500&amp;display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #1E3A34; }
+  html { scroll-snap-type: y proximity; }
+  * { box-sizing: border-box; }
+  a { color: #C9A87C; text-decoration: none; }
+  a:hover { color: #FFFFFF; }
+  input[type="date"]::-webkit-calendar-picker-indicator,
+  input[type="date"]::-webkit-inner-spin-button,
+  input[type="date"]::-webkit-clear-button { display: none; -webkit-appearance: none; opacity: 0; }
+  @keyframes ld-pulse { 0%, 100% { opacity: 0.45; transform: scale(0.985); } 50% { opacity: 1; transform: scale(1); } }
+  @keyframes ld-line { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  @keyframes hint-float { 0%, 100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 6px); } }
+  @keyframes rec-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  [data-marquee]:hover [data-track] { animation-play-state: paused; }
+  @media (max-width: 1080px) {
+    [data-wordmark] { font-size: 17px !important; letter-spacing: 0.15em !important; }
+    [data-logomark] { height: 21px !important; }
+    [data-mobnav] { gap: 20px !important; font-size: 12px !important; }
+  }
+  @media (max-width: 1100px) {
+    [data-mobquad] { grid-template-columns: repeat(2, 1fr) !important; }
+  }
+  @media (max-width: 900px) {
+    [data-mobhide] { display: none !important; }
+    [data-burger] { display: flex !important; }
+    [data-wordmark] { font-size: 16px !important; letter-spacing: 0.15em !important; }
+    [data-logomark] { height: 20px !important; }
+    [data-calpop] { position: fixed !important; top: 50% !important; left: 50% !important; transform: translate(-50%, -50%); width: calc(100vw - 32px) !important; max-height: 86vh; overflow-y: auto; z-index: 70 !important; }
+    [data-mobstack] { grid-template-columns: 1fr !important; gap: 28px !important; }
+    [data-mobpad] { padding-left: 20px !important; padding-right: 20px !important; }
+    [data-mobcap] { padding: 0 20px 76px !important; }
+  }
+  ::selection { background: #C9A87C; color: #F0EDE6; }
+</style>
+</helmet>
+
+<div style="background: #1E3A34; color: #F0EDE6; font-family: 'IBM Plex Sans', system-ui, sans-serif; overflow-x: hidden;">
+
+  <div data-loader="1" style="position: fixed; inset: 0; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 26px; background: #1E3A34; transition: opacity 0.4s ease, visibility 0.4s ease;">
+    <img src="assets/logo-dome4.png" alt="Kosmaj Zomes" style="width: 84px; height: auto; display: block; animation: ld-pulse 1.2s ease-in-out infinite;">
+    <span style="font-family: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif; font-size: 17px; font-weight: 500; letter-spacing: 0.34em; color: #F0EDE6;">KOSMAJ ZOMES</span>
+  </div>
+
+  <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; padding: 20px 20px; background: linear-gradient(180deg, rgba(22,36,31,0.55) 0%, rgba(22,36,31,0) 100%);">
+    <a href="#vrh" style="display: flex; align-items: center; gap: 14px;"><img src="assets/logo-dome4.png" alt="" data-logomark="1" style="height: 26px; width: auto; display: block;"><span data-wordmark="1" style="font-family: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif; font-size: 23px; font-weight: 600; letter-spacing: 0.22em; line-height: 1; white-space: nowrap; color: #F0EDE6;">KOSMAJ ZOMES</span></a>
+    <nav data-mobnav="1" style="display: flex; align-items: center; margin-left: 28px; gap: 34px; font-size: 13px; letter-spacing: 0.14em; line-height: 1; text-transform: uppercase;">
+      <a href="#prostor" data-mobhide="1" style="color: #F0EDE6; line-height: 1;">Prostor</a>
+      <a href="#opremljenost" data-mobhide="1" style="color: #F0EDE6; line-height: 1;">Sadržaj</a>
+      <a href="#cene" data-mobhide="1" style="color: #F0EDE6; line-height: 1;">Cene</a>
+      <a href="#recenzije" data-mobhide="1" style="color: #F0EDE6; line-height: 1;">Recenzije</a>
+      <a href="#lokacija" data-mobhide="1" style="color: #F0EDE6; line-height: 1;">Lokacija</a>
+      <button data-burger="1" onClick="{{ toggleMenu }}" aria-label="Meni" style="display: none; background: transparent; border: none; padding: 8px 0 8px 8px; cursor: pointer; flex-direction: column; gap: 5px;"><span style="display: block; width: 24px; height: 1.5px; background: #F0EDE6;"></span><span style="display: block; width: 24px; height: 1.5px; background: #F0EDE6;"></span><span style="display: block; width: 24px; height: 1.5px; background: #F0EDE6;"></span></button>
+      <a href="#rezervacija" data-mobhide="1" style="color: #F0EDE6; border: 1px solid #F0EDE6; padding: 9px 18px; border-radius: 100px; line-height: 1; transition: background 0.3s ease, color 0.3s ease;" style-hover="background: #F0EDE6; color: #16241F;">Rezerviši</a>
+    </nav>
+  </header>
+
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeMenu }}" style="position: fixed; inset: 0; z-index: 60; display: flex; flex-direction: column; justify-content: center; gap: 26px; padding: 40px; background: rgba(22,36,31,0.97); font-size: 22px; letter-spacing: 0.12em; text-transform: uppercase;">
+      <a href="#prostor" style="color: #F0EDE6;">Prostor</a>
+      <a href="#opremljenost" style="color: #F0EDE6;">Sadržaj</a>
+      <a href="#cene" style="color: #F0EDE6;">Cene</a>
+      <a href="#recenzije" style="color: #F0EDE6;">Recenzije</a>
+      <a href="#lokacija" style="color: #F0EDE6;">Lokacija</a>
+      <a href="#rezervacija" style="color: #C9A87C;">Rezerviši</a>
+      <span style="position: absolute; top: 24px; right: 28px; font-size: 30px; color: #F0EDE6; line-height: 1;">×</span>
+    </div>
+  </sc-if>
+
+  <div id="vrh" data-film-wrap="1" style="position: relative; z-index: 0; height: 500vh;">
+    <div data-stage="1" style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; overflow: hidden; background: #1E3A34; z-index: 0;">
+
+      <div data-layer="0" style="position: absolute; inset: 0; opacity: 1; background-image: url('https://d8j0ntlcm91z4.cloudfront.net/user_2zRCz6mhvRjiDnQww4NHsnpU15t/hf_20260806_110518_881c701e-39d0-4c70-a140-de2ca76df8da.png'); background-size: cover; background-position: center;">
+        <video data-clip="0" muted="" playsinline="" preload="metadata" src="https://d8j0ntlcm91z4.cloudfront.net/user_2zRCz6mhvRjiDnQww4NHsnpU15t/hf_20260806_113819_a8cd3739-c804-4d0e-90ce-ec77f971b696.mp4" style="width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0; transition: opacity 0.4s ease; background: transparent;"></video>
+      </div>
+      <div data-layer="1" style="position: absolute; inset: 0; opacity: 0; background-image: url('https://d8j0ntlcm91z4.cloudfront.net/user_2zRCz6mhvRjiDnQww4NHsnpU15t/hf_20260806_153102_ebfc18e5-5c7d-4ec3-9aa0-fd88f2014457.png'); background-size: cover; background-position: center;">
+        <video data-clip="1" muted="" playsinline="" preload="metadata" src="https://d8j0ntlcm91z4.cloudfront.net/user_2zRCz6mhvRjiDnQww4NHsnpU15t/hf_20260806_153222_d860a862-8643-4a30-b514-765390b7ca7f.mp4" style="width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0; transition: opacity 0.4s ease; background: transparent;"></video>
+      </div>
+      <div data-layer="2" style="position: absolute; inset: 0; opacity: 0; background-image: url('https://d8j0ntlcm91z4.cloudfront.net/user_2zRCz6mhvRjiDnQww4NHsnpU15t/hf_20260806_153102_5e60a9b7-cf3b-4d2f-a0d4-a7986bbfdd10.png'); background-size: cover; background-position: center;">
+        <video data-clip="2" muted="" playsinline="" preload="metadata" src="https://d8j0ntlcm91z4.cloudfront.net/user_2zRCz6mhvRjiDnQww4NHsnpU15t/hf_20260806_162407_47b06d7c-8518-4337-86ed-deda2ef19daf.mp4" style="width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0; transition: opacity 0.4s ease; background: transparent;"></video>
+      </div>
+      
+      <div data-layer="4" style="position: absolute; inset: 0; opacity: 0; background-image: url('uploads/Screenshot%202026-08-06%20122034.png'); background-size: cover; background-position: center;">
+        <video data-clip="4" muted="" playsinline="" preload="metadata" src="https://d8j0ntlcm91z4.cloudfront.net/user_2zRCz6mhvRjiDnQww4NHsnpU15t/hf_20260806_110222_0e8a6dfd-f6dc-4257-aef4-bd94cfec98a8.mp4" style="width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0; transition: opacity 0.4s ease; background: transparent;"></video>
+      </div>
+      <div data-layer="5" style="position: absolute; inset: 0; opacity: 0; background-image: url('https://d8j0ntlcm91z4.cloudfront.net/user_2zRCz6mhvRjiDnQww4NHsnpU15t/hf_20260806_110518_b6824ea9-3eaa-4a98-8b8a-b10cf67d82b9.png'); background-size: cover; background-position: center;">
+        <video data-clip="5" muted="" playsinline="" preload="metadata" src="https://d8j0ntlcm91z4.cloudfront.net/user_2zRCz6mhvRjiDnQww4NHsnpU15t/hf_20260811_002742_49db1bfe-84cd-4ebe-a3be-9fc3c2b72d14.mp4" style="width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0; transition: opacity 0.4s ease; background: transparent;"></video>
+      </div>
+
+      <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(22,36,31,0.55) 0%, rgba(22,36,31,0.05) 32%, rgba(22,36,31,0.12) 60%, rgba(22,36,31,0.80) 100%); pointer-events: none;"></div>
+
+      <div style="position: absolute; inset: 0; display: flex; align-items: flex-end; padding: 0 40px 96px; pointer-events: none;" data-mobcap="1">
+        <div style="position: relative; width: 100%; max-width: 1400px; margin: 0 auto;">
+
+          <div data-cap="0" style="position: absolute; left: 0; bottom: 0; opacity: 1; transition: opacity 0.35s ease;">
+            <p style="margin: 0 0 14px; font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: #C9A87C;">01 — Beg iz grada</p>
+            <h1 style="margin: 0; font-family: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(38px, 5.2vw, 80px); line-height: 1.02; letter-spacing: -0.02em; display: flex; align-items: flex-start; min-height: 2.04em; max-width: 16ch; text-wrap: balance;">Beg od gradske buke u srcu planine</h1>
+          </div>
+
+          <div data-cap="1" style="position: absolute; left: 0; bottom: 0; opacity: 0; transition: opacity 0.35s ease;">
+            <p style="margin: 0 0 14px; font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: #C9A87C;">02 — Đakuzi</p>
+            <h2 style="margin: 0; font-family: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(38px, 5.2vw, 80px); line-height: 1.02; letter-spacing: -0.02em; display: flex; align-items: flex-start; min-height: 2.04em; max-width: 16ch;">Topla voda i pogled do horizonta</h2>
+          </div>
+
+          <div data-cap="2" style="position: absolute; left: 0; bottom: 0; opacity: 0; transition: opacity 0.35s ease;">
+            <p style="margin: 0 0 14px; font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: #C9A87C;">03 — Spavanje</p>
+            <h2 style="margin: 0; font-family: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(38px, 5.2vw, 80px); line-height: 1.02; letter-spacing: -0.02em; display: flex; align-items: flex-start; min-height: 2.04em; max-width: 16ch;">Noć pod zvezdama</h2>
+          </div>
+
+          
+
+          <div data-cap="3" style="position: absolute; left: 0; bottom: 0; opacity: 0; transition: opacity 0.35s ease;">
+            <p style="margin: 0 0 14px; font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: #C9A87C;">04 — Pogled</p>
+            <h2 style="margin: 0; font-family: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(38px, 5.2vw, 80px); line-height: 1.02; letter-spacing: -0.02em; display: flex; align-items: flex-start; min-height: 2.04em; max-width: 16ch;">Tišina koja se ne kupuje u gradu</h2>
+          </div>
+
+          <div data-cap="4" style="position: absolute; left: 0; bottom: 0; opacity: 0; transition: opacity 0.35s ease;">
+            <p style="margin: 0 0 14px; font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: #C9A87C;">05 — Zvezde</p>
+            <h2 style="margin: 0; font-family: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(38px, 5.2vw, 80px); line-height: 1.02; letter-spacing: -0.02em; display: flex; align-items: flex-start; min-height: 2.04em; max-width: 16ch;">Nebo bez ulične svetlosti</h2>
+          </div>
+
+        </div>
+      </div>
+
+      <div style="position: absolute; right: 40px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 10px; align-items: center; pointer-events: none;">
+        <div data-dot="0" style="width: 5px; height: 22px; border-radius: 3px; background: #F0EDE6; transition: background 0.3s ease;"></div>
+        <div data-dot="1" style="width: 5px; height: 22px; border-radius: 3px; background: rgba(240,237,230,0.25); transition: background 0.3s ease;"></div>
+        <div data-dot="2" style="width: 5px; height: 22px; border-radius: 3px; background: rgba(240,237,230,0.25); transition: background 0.3s ease;"></div>
+        <div data-dot="3" style="width: 5px; height: 22px; border-radius: 3px; background: rgba(240,237,230,0.25); transition: background 0.3s ease;"></div>
+        <div data-dot="4" style="width: 5px; height: 22px; border-radius: 3px; background: rgba(240,237,230,0.25); transition: background 0.3s ease;"></div>
+        
+      </div>
+
+      <div data-scrollhint="1" style="position: absolute; bottom: 34px; left: 50%; transform: translateX(-50%); font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(240,237,230,0.6); transition: opacity 0.4s ease; animation: hint-float 2.8s ease-in-out infinite;">Skrolujte da uđete</div>
+
+    </div>
+      <div aria-hidden="true" style="position: relative; z-index: 1; pointer-events: none;">
+      <div style="height: 100vh; scroll-snap-align: start;"></div>
+      <div style="height: 100vh; scroll-snap-align: start;"></div>
+      <div style="height: 100vh; scroll-snap-align: start;"></div>
+      <div style="height: 100vh; scroll-snap-align: start;"></div>
+      <div style="height: 100vh; scroll-snap-align: start;"></div>
+    </div>
+</div>
+
+  <section id="prostor" style="position: relative; z-index: 2; background: #F0EDE6; color: #16241F; padding: 96px 40px 70px;" data-mobpad="1">
+    <div style="max-width: 1400px; margin: 0 auto;">
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 80px; align-items: start; margin-bottom: 88px;" data-mobstack="1">
+        <div>
+          <p style="margin: 0 0 20px; font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: #7A9187;">Prostor</p>
+          <h2 style="margin: 0; font-family: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(40px, 4.8vw, 72px); line-height: 1.04; letter-spacing: -0.02em;">Jedna prostorija, ceo horizont</h2>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 22px; font-size: 17px; line-height: 1.65; color: #3A4A44; max-width: 56ch;">
+          <p style="margin: 0;">Geodetska kupola od 45 m², postavljena na kosini iznad voćnjaka. Drvena konstrukcija, staklo do poda i krovni prozor iznad kreveta.</p>
+          <p style="margin: 0;">Unutra: okrugli krevet za dvoje, slobodnostojeća kada, odvojeno kupatilo, mala kuhinja i sto uz stakleni zid. Napolju: drvena terasa sa đakuzijem, ležaljkama i roštiljem.</p>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px;">
+        <img src="uploads/Screenshot%202026-08-14%20173056.png" alt="Kupole u zelenilu" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; transition: transform 0.9s cubic-bezier(0.22,0.61,0.36,1), filter 0.6s ease;" style-hover="transform: scale(1.025); filter: brightness(1.04);">
+        <img src="uploads/Screenshot%202026-08-14%20173156.png" alt="Doručak uz stakleni zid" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; transition: transform 0.9s cubic-bezier(0.22,0.61,0.36,1), filter 0.6s ease;" style-hover="transform: scale(1.025); filter: brightness(1.04);">
+      </div>
+
+      <div style="margin-top: 16px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;" data-mobquad="1">
+        <img src="uploads/Screenshot%202026-08-14%20173119.png" alt="Đakuzi sa pogledom" style="width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; transition: transform 0.9s cubic-bezier(0.22,0.61,0.36,1), filter 0.6s ease;" style-hover="transform: scale(1.025); filter: brightness(1.04);">
+        <img src="uploads/Screenshot%202026-08-14%20173135.png" alt="Đakuzi zimi" style="width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; transition: transform 0.9s cubic-bezier(0.22,0.61,0.36,1), filter 0.6s ease;" style-hover="transform: scale(1.025); filter: brightness(1.04);">
+        <img src="uploads/Screenshot%202026-08-14%20173348.png" alt="Ležaljka na terasi" style="width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; transition: transform 0.9s cubic-bezier(0.22,0.61,0.36,1), filter 0.6s ease;" style-hover="transform: scale(1.025); filter: brightness(1.04);">
+        <img src="uploads/Screenshot%202026-08-14%20173405.png" alt="Kupatilo" style="width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; transition: transform 0.9s cubic-bezier(0.22,0.61,0.36,1), filter 0.6s ease;" style-hover="transform: scale(1.025); filter: brightness(1.04);">
+      </div>
+
+      <div style="margin-top: 16px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px;">
+        <img src="uploads/Screenshot%202026-08-14%20173210.png" alt="Kada pod kupolom" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; transition: transform 0.9s cubic-bezier(0.22,0.61,0.36,1), filter 0.6s ease;" style-hover="transform: scale(1.025); filter: brightness(1.04);">
+        <img src="uploads/Screenshot%202026-08-14%20173224.png" alt="Crna kada" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; transition: transform 0.9s cubic-bezier(0.22,0.61,0.36,1), filter 0.6s ease;" style-hover="transform: scale(1.025); filter: brightness(1.04);">
+      </div>
+
+      <div style="margin-top: 16px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px;">
+        <img src="uploads/Screenshot%202026-08-14%20173324.png" alt="Kupola u sumrak" style="width: 100%; aspect-ratio: 16 / 11; object-fit: cover; display: block; transition: transform 0.9s cubic-bezier(0.22,0.61,0.36,1), filter 0.6s ease;" style-hover="transform: scale(1.025); filter: brightness(1.04);">
+        <img src="uploads/Screenshot%202026-08-14%20173247.png" alt="Detalj" style="width: 100%; aspect-ratio: 16 / 11; object-fit: cover; display: block; transition: transform 0.9s cubic-bezier(0.22,0.61,0.36,1), filter 0.6s ease;" style-hover="transform: scale(1.025); filter: brightness(1.04);">
+      </div>
+    </div>
+  </section>
+
+  
+
+
+  
+
+  <section id="opremljenost" style="position: relative; z-index: 2; background: #F0EDE6; color: #16241F; padding: 80px 40px 90px;" data-mobpad="1">
+    <div style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 70px; align-items: start;" data-mobstack="1">
+      <div>
+        <p style="margin: 0 0 20px; font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: #7A9187;">Opremljenost</p>
+        <h2 style="margin: 0 0 16px; font-family: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(34px, 4vw, 56px); line-height: 1.05;">Šta vas čeka</h2>
+        <p style="margin: 0; font-size: 16px; line-height: 1.65; color: #4C5C55; max-width: 34ch;">Dučina, Kosmaj — vazdušna banja, mesto gde se sastaju ruže vetrova i vrlo čist vazduh.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 40px;" data-mobstack="1">
+        <span style="display: flex; align-items: center; gap: 12px; padding: 15px 0; border-bottom: 1px solid rgba(22,36,31,0.12); font-size: 16px; transition: padding-left 0.35s ease, color 0.35s ease;" style-hover="padding-left: 8px;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #C9A87C; flex: 0 0 auto;"></span>Pogled na planinu</span>
+        <span style="display: flex; align-items: center; gap: 12px; padding: 15px 0; border-bottom: 1px solid rgba(22,36,31,0.12); font-size: 16px; transition: padding-left 0.35s ease, color 0.35s ease;" style-hover="padding-left: 8px;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #C9A87C; flex: 0 0 auto;"></span>Kuhinja</span>
+        <span style="display: flex; align-items: center; gap: 12px; padding: 15px 0; border-bottom: 1px solid rgba(22,36,31,0.12); font-size: 16px; transition: padding-left 0.35s ease, color 0.35s ease;" style-hover="padding-left: 8px;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #C9A87C; flex: 0 0 auto;"></span>Wi‑Fi</span>
+        <span style="display: flex; align-items: center; gap: 12px; padding: 15px 0; border-bottom: 1px solid rgba(22,36,31,0.12); font-size: 16px; transition: padding-left 0.35s ease, color 0.35s ease;" style-hover="padding-left: 8px;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #C9A87C; flex: 0 0 auto;"></span>Besplatan parking</span>
+        <span style="display: flex; align-items: center; gap: 12px; padding: 15px 0; border-bottom: 1px solid rgba(22,36,31,0.12); font-size: 16px; transition: padding-left 0.35s ease, color 0.35s ease;" style-hover="padding-left: 8px;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #C9A87C; flex: 0 0 auto;"></span>Privatni đakuzi</span>
+        <span style="display: flex; align-items: center; gap: 12px; padding: 15px 0; border-bottom: 1px solid rgba(22,36,31,0.12); font-size: 16px; transition: padding-left 0.35s ease, color 0.35s ease;" style-hover="padding-left: 8px;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #C9A87C; flex: 0 0 auto;"></span>Kućni ljubimci dozvoljeni</span>
+        <span style="display: flex; align-items: center; gap: 12px; padding: 15px 0; border-bottom: 1px solid rgba(22,36,31,0.12); font-size: 16px; transition: padding-left 0.35s ease, color 0.35s ease;" style-hover="padding-left: 8px;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #C9A87C; flex: 0 0 auto;"></span>Klima uređaj</span>
+        <span style="display: flex; align-items: center; gap: 12px; padding: 15px 0; border-bottom: 1px solid rgba(22,36,31,0.12); font-size: 16px; transition: padding-left 0.35s ease, color 0.35s ease;" style-hover="padding-left: 8px;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #C9A87C; flex: 0 0 auto;"></span>Kada</span>
+        <span style="display: flex; align-items: center; gap: 12px; padding: 15px 0; border-bottom: 1px solid rgba(22,36,31,0.12); font-size: 16px; transition: padding-left 0.35s ease, color 0.35s ease;" style-hover="padding-left: 8px;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #C9A87C; flex: 0 0 auto;"></span>Detektor dima</span>
+        <span style="display: flex; align-items: center; gap: 12px; padding: 15px 0; border-bottom: 1px solid rgba(22,36,31,0.12); font-size: 16px; transition: padding-left 0.35s ease, color 0.35s ease;" style-hover="padding-left: 8px;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #C9A87C; flex: 0 0 auto;"></span>Terasa sa ležaljkama</span>
+      </div>
+    </div>
+  </section>
+
+  
+  
+
+  <section id="cene" style="position: relative; z-index: 2; background: #1E3A34; color: #F0EDE6; padding: 64px 40px 72px;" data-mobpad="1">
+    <div style="max-width: 1400px; margin: 0 auto;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 56px; align-items: start;" data-mobstack="1">
+        <div>
+          <p style="margin: 0 0 20px; font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: #9FB0A6;">Cene</p>
+          <h2 style="margin: 0; font-family: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(40px, 4.8vw, 72px); line-height: 1.04; letter-spacing: -0.02em;">Po noćenju, za dve osobe</h2>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 0;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 22px 0; border-top: 1px solid rgba(240,237,230,0.18);"><span style="font-size: 17px;">Radnim danima</span><span style="font-family: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif; font-size: 34px;">120 €</span></div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 22px 0; border-top: 1px solid rgba(240,237,230,0.18);"><span style="font-size: 17px;">Vikend (pet–ned)</span><span style="font-family: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif; font-size: 34px;">160 €</span></div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 22px 0; border-top: 1px solid rgba(240,237,230,0.18); border-bottom: 1px solid rgba(240,237,230,0.18);"><span style="font-size: 17px;">Praznici, min. 2 noći</span><span style="font-family: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif; font-size: 34px;">185 €</span></div>
+          <p style="margin: 20px 0 0; font-size: 14px; color: #9FB0A6;">Doručak i finalno čišćenje uključeni. Prijava od 15h, odjava do 11h.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rezervacija" style="position: relative; z-index: 2; background: #1E3A34; color: #F0EDE6; padding: 0 40px 110px;" data-mobpad="1">
+    <div style="max-width: 1400px; margin: 0 auto; border-top: 1px solid rgba(240,237,230,0.18); padding-top: 90px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 70px;" data-mobstack="1">
+      <div>
+        <h2 style="margin: 0 0 18px; font-family: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(36px, 4.2vw, 58px); line-height: 1.05; letter-spacing: -0.02em;">Rezervacija</h2>
+        <p style="margin: 0; font-size: 16px; line-height: 1.65; color: #9FB0A6; max-width: 40ch;">Pošaljite upit i javljamo se u roku od 24 sata sa potvrdom termina.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 18px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 18px;">
+          <input placeholder="Ime i prezime" style="background: transparent; border: none; border-bottom: 1px solid rgba(240,237,230,0.3); color: #F0EDE6; font-family: 'IBM Plex Sans', sans-serif; font-size: 16px; padding: 14px 2px; outline: none;" style-focus="border-bottom-color: #F0EDE6;">
+          <input placeholder="Telefon ili e-mail" style="background: transparent; border: none; border-bottom: 1px solid rgba(240,237,230,0.3); color: #F0EDE6; font-family: 'IBM Plex Sans', sans-serif; font-size: 16px; padding: 14px 2px; outline: none;" style-focus="border-bottom-color: #F0EDE6;">
+        </div>
+        <div style="position: relative;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 40px;">
+          <div onClick="{{ openCal }}" style="position: relative; display: flex; align-items: center; cursor: pointer; border-bottom: 1px solid rgba(240,237,230,0.3); padding: 14px 2px;">
+            <span style="font-size: 16px; color: rgba(240,237,230,0.55);">Dolazak</span>
+            <span style="margin-left: 10px; font-size: 16px; color: #F0EDE6;">{{ fromLabel }}</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#C9A87C" stroke-width="1.4" style="position: absolute; right: 8px; width: 18px; height: 18px; pointer-events: none;"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg>
+          </div>
+          <div onClick="{{ openCal }}" style="position: relative; display: flex; align-items: center; cursor: pointer; border-bottom: 1px solid rgba(240,237,230,0.3); padding: 14px 2px;">
+            <span style="font-size: 16px; color: rgba(240,237,230,0.55);">Odlazak</span>
+            <span style="margin-left: 10px; font-size: 16px; color: #F0EDE6;">{{ toLabel }}</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#C9A87C" stroke-width="1.4" style="position: absolute; right: 8px; width: 18px; height: 18px; pointer-events: none;"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg>
+          </div>
+          </div>
+
+          <sc-if value="{{ calOpen }}" hint-placeholder-val="{{ false }}">
+            <div data-calpop="1" style="position: absolute; z-index: 20; top: calc(100% + 12px); left: 0; width: 330px; max-width: 100%; padding: 20px 20px 18px; background: #16241F; border: 1px solid rgba(240,237,230,0.16); box-shadow: 0 26px 60px rgba(0,0,0,0.45);">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+                <button onClick="{{ prevMonth }}" style="background: transparent; border: none; color: #C9A87C; font-size: 20px; line-height: 1; cursor: pointer; padding: 4px 8px;">‹</button>
+                <span style="font-family: 'Bodoni Moda', Georgia, serif; font-size: 19px; letter-spacing: 0.04em;">{{ monthLabel }}</span>
+                <button onClick="{{ nextMonth }}" style="background: transparent; border: none; color: #C9A87C; font-size: 20px; line-height: 1; cursor: pointer; padding: 4px 8px;">›</button>
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; margin-bottom: 6px; font-size: 11px; letter-spacing: 0.06em; color: #7A9187; text-align: center;">
+                <span>pon</span><span>uto</span><span>sre</span><span>čet</span><span>pet</span><span>sub</span><span>ned</span>
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px;">
+                <sc-for list="{{ days }}" as="d" hint-placeholder-count="35">
+                  <button onClick="{{ d.pick }}" style="{{ d.style }}">{{ d.label }}</button>
+                </sc-for>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 14px; font-size: 13px; color: #9FB0A6;">
+                <span>{{ nightsLabel }}</span>
+                <span style="display: flex; gap: 16px;">
+                  <button onClick="{{ clearCal }}" style="background: transparent; border: none; color: #9FB0A6; font-size: 13px; cursor: pointer; padding: 0;">Obriši</button>
+                  <button onClick="{{ closeCal }}" style="background: transparent; border: none; color: #C9A87C; font-size: 13px; cursor: pointer; padding: 0;">Gotovo</button>
+                </span>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+        <textarea placeholder="Napomena" rows="3" style="background: transparent; border: none; border-bottom: 1px solid rgba(240,237,230,0.3); color: #F0EDE6; font-family: 'IBM Plex Sans', sans-serif; font-size: 16px; padding: 14px 2px; outline: none; resize: none;" style-focus="border-bottom-color: #F0EDE6;"></textarea>
+        <button style="margin-top: 14px; align-self: flex-start; background: #C9A87C; color: #16241F; border: none; border-radius: 100px; padding: 16px 40px; font-family: 'IBM Plex Sans', sans-serif; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; transition: background 0.3s ease, transform 0.3s ease, letter-spacing 0.3s ease;" style-hover="background: #D9BC93; transform: translateY(-2px); letter-spacing: 0.18em;">Pošalji upit</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="recenzije" style="position: relative; z-index: 2; background: #F0EDE6; color: #16241F; padding: 80px 40px 90px;" data-mobpad="1">
+    <div style="max-width: 1400px; margin: 0 auto;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 48px; align-items: start; margin-bottom: 56px;" data-mobstack="1">
+        <div style="width: 560px; max-width: 100%;">
+          <p style="margin: 0 0 20px; font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: #7A9187;">Recenzije</p>
+          
+          <div style="display: flex; align-items: center; gap: 22px;">
+            <img src="assets/logo-dome4.png" alt="" style="height: 64px; width: auto; display: block; opacity: 0.9;" />
+            <span style="display: flex; flex-direction: column; gap: 6px;">
+              <span style="font-family: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif; font-size: clamp(52px, 6vw, 84px); line-height: 0.86; font-weight: 500;">5,0</span>
+              <span style="color: #C9A87C; font-size: 15px; letter-spacing: 0.24em;">★★★★★</span>
+            </span>
+          </div>
+          <p style="margin: 22px 0 0; padding-top: 20px; border-top: 1px solid rgba(22,36,31,0.14); font-size: 16px; line-height: 1.6; color: #4C5C55; max-width: 30ch;">Omiljeno kod gostiju — na osnovu ocena, recenzija i pouzdanosti. 42 recenzije.</p>
+        </div>
+        <div style="display: flex; flex-direction: column;">
+          <div style="display: flex; align-items: center; gap: 18px; padding: 13px 0; border-bottom: 1px solid rgba(22,36,31,0.12);">
+            <span style="flex: 0 0 130px; font-size: 14px; color: #4C5C55;">Čistoća</span>
+            <span style="flex: 1 1 auto; height: 2px; background: rgba(22,36,31,0.12);"><span style="display: block; width: 98%; height: 100%; background: #C9A87C;"></span></span>
+            <span style="flex: 0 0 auto; font-family: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif; font-size: 20px;">4,9</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 18px; padding: 13px 0; border-bottom: 1px solid rgba(22,36,31,0.12);">
+            <span style="flex: 0 0 130px; font-size: 14px; color: #4C5C55;">Tačnost opisa</span>
+            <span style="flex: 1 1 auto; height: 2px; background: rgba(22,36,31,0.12);"><span style="display: block; width: 100%; height: 100%; background: #C9A87C;"></span></span>
+            <span style="flex: 0 0 auto; font-family: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif; font-size: 20px;">5,0</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 18px; padding: 13px 0; border-bottom: 1px solid rgba(22,36,31,0.12);">
+            <span style="flex: 0 0 130px; font-size: 14px; color: #4C5C55;">Prijava</span>
+            <span style="flex: 1 1 auto; height: 2px; background: rgba(22,36,31,0.12);"><span style="display: block; width: 100%; height: 100%; background: #C9A87C;"></span></span>
+            <span style="flex: 0 0 auto; font-family: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif; font-size: 20px;">5,0</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 18px; padding: 13px 0; border-bottom: 1px solid rgba(22,36,31,0.12);">
+            <span style="flex: 0 0 130px; font-size: 14px; color: #4C5C55;">Komunikacija</span>
+            <span style="flex: 1 1 auto; height: 2px; background: rgba(22,36,31,0.12);"><span style="display: block; width: 100%; height: 100%; background: #C9A87C;"></span></span>
+            <span style="flex: 0 0 auto; font-family: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif; font-size: 20px;">5,0</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 18px; padding: 13px 0; border-bottom: 1px solid rgba(22,36,31,0.12);">
+            <span style="flex: 0 0 130px; font-size: 14px; color: #4C5C55;">Lokacija</span>
+            <span style="flex: 1 1 auto; height: 2px; background: rgba(22,36,31,0.12);"><span style="display: block; width: 100%; height: 100%; background: #C9A87C;"></span></span>
+            <span style="flex: 0 0 auto; font-family: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif; font-size: 20px;">5,0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-marquee="1" style="position: relative; overflow: hidden; margin: 0 -40px;">
+      <div data-track="1" style="display: flex; width: max-content; gap: 16px; padding: 0 8px; animation: rec-marquee 56s linear infinite;">
+          <figure style="flex: 0 0 380px; margin: 0; padding: 28px 30px 30px; background: #E4E0D5; display: flex; flex-direction: column; gap: 14px;">
+            <figcaption style="display: flex; flex-direction: column; gap: 2px;">
+              <span style="font-family: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif; font-size: 22px; font-weight: 600; color: #16241F;">Michael</span>
+              <span style="font-size: 12px; letter-spacing: 0.08em; color: #7A9187;">5 godina na Airbnb-u</span>
+            </figcaption>
+            <span style="display: flex; align-items: center; gap: 10px; font-size: 12px; color: #7A9187;"><span style="color: #C9A87C; letter-spacing: 0.16em;">★★★★★</span>pre 2 nedelje</span>
+            <blockquote style="margin: 0; font-size: 15px; line-height: 1.65; color: #3A4A44;">Predivan boravak, sve bih preporučio. Mesto je besprekorno čisto, održavano i izgleda baš kao na fotografijama. Imalo je sve što mi je trebalo.</blockquote>
+          </figure>
+          <figure style="flex: 0 0 380px; margin: 0; padding: 28px 30px 30px; background: #E4E0D5; display: flex; flex-direction: column; gap: 14px;">
+            <figcaption style="display: flex; flex-direction: column; gap: 2px;">
+              <span style="font-family: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif; font-size: 22px; font-weight: 600; color: #16241F;">Stevo</span>
+              <span style="font-size: 12px; letter-spacing: 0.08em; color: #7A9187;">Bazel, Švajcarska</span>
+            </figcaption>
+            <span style="display: flex; align-items: center; gap: 10px; font-size: 12px; color: #7A9187;"><span style="color: #C9A87C; letter-spacing: 0.16em;">★★★★★</span>jun 2026.</span>
+            <blockquote style="margin: 0; font-size: 15px; line-height: 1.65; color: #3A4A44;">Divan boravak! Smeštaj je bio veoma čist, a prijava jednostavna. Komunikacija sa domaćinom je uvek bila brza i ljubazna.</blockquote>
+          </figure>
+          <figure style="flex: 0 0 380px; margin: 0; padding: 28px 30px 30px; background: #E4E0D5; display: flex; flex-direction: column; gap: 14px;">
+            <figcaption style="display: flex; flex-direction: column; gap: 2px;">
+              <span style="font-family: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif; font-size: 22px; font-weight: 600; color: #16241F;">Mina</span>
+              <span style="font-size: 12px; letter-spacing: 0.08em; color: #7A9187;">10 godina na Airbnb-u</span>
+            </figcaption>
+            <span style="display: flex; align-items: center; gap: 10px; font-size: 12px; color: #7A9187;"><span style="color: #C9A87C; letter-spacing: 0.16em;">★★★★★</span>jun 2026.</span>
+            <blockquote style="margin: 0; font-size: 15px; line-height: 1.65; color: #3A4A44;">Drugi put sam boravila u ovoj kućici iz bajke i već planiram sledeći dolazak na leto. Ne mogu dovoljno da preporučim.</blockquote>
+          </figure>
+          <figure style="flex: 0 0 380px; margin: 0; padding: 28px 30px 30px; background: #E4E0D5; display: flex; flex-direction: column; gap: 14px;">
+            <figcaption style="display: flex; flex-direction: column; gap: 2px;">
+              <span style="font-family: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif; font-size: 22px; font-weight: 600; color: #16241F;">Maja</span>
+              <span style="font-size: 12px; letter-spacing: 0.08em; color: #7A9187;">Cirih, Švajcarska</span>
+            </figcaption>
+            <span style="display: flex; align-items: center; gap: 10px; font-size: 12px; color: #7A9187;"><span style="color: #C9A87C; letter-spacing: 0.16em;">★★★★★</span>maj 2026.</span>
+            <blockquote style="margin: 0; font-size: 15px; line-height: 1.65; color: #3A4A44;">Lepo i udobno mesto za odmor i uživanje u životu punim plućima.</blockquote>
+          </figure>
+          <figure style="flex: 0 0 380px; margin: 0; padding: 28px 30px 30px; background: #E4E0D5; display: flex; flex-direction: column; gap: 14px;">
+            <figcaption style="display: flex; flex-direction: column; gap: 2px;">
+              <span style="font-family: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif; font-size: 22px; font-weight: 600; color: #16241F;">Andrei</span>
+              <span style="font-size: 12px; letter-spacing: 0.08em; color: #7A9187;">10 godina na Airbnb-u</span>
+            </figcaption>
+            <span style="display: flex; align-items: center; gap: 10px; font-size: 12px; color: #7A9187;"><span style="color: #C9A87C; letter-spacing: 0.16em;">★★★★★</span>februar 2026.</span>
+            <blockquote style="margin: 0; font-size: 15px; line-height: 1.65; color: #3A4A44;">Neverovatno i posebno mesto, toplo i prijatno. Romantično, privatno i dobro opremljeno.</blockquote>
+          </figure>
+          <figure style="flex: 0 0 380px; margin: 0; padding: 28px 30px 30px; background: #E4E0D5; display: flex; flex-direction: column; gap: 14px;">
+            <figcaption style="display: flex; flex-direction: column; gap: 2px;">
+              <span style="font-family: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif; font-size: 22px; font-weight: 600; color: #16241F;">Stefana</span>
+              <span style="font-size: 12px; letter-spacing: 0.08em; color: #7A9187;">Ebikon, Švajcarska</span>
+            </figcaption>
+            <span style="display: flex; align-items: center; gap: 10px; font-size: 12px; color: #7A9187;"><span style="color: #C9A87C; letter-spacing: 0.16em;">★★★★★</span>april 2026.</span>
+            <blockquote style="margin: 0; font-size: 15px; line-height: 1.65; color: #3A4A44;">Predivno mesto za odmor. Čisto i ljubazno.</blockquote>
+          </figure>
+          <figure style="flex: 0 0 380px; margin: 0; padding: 28px 30px 30px; background: #E4E0D5; display: flex; flex-direction: column; gap: 14px;">
+            <figcaption style="display: flex; flex-direction: column; gap: 2px;">
+              <span style="font-family: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif; font-size: 22px; font-weight: 600; color: #16241F;">Michael</span>
+              <span style="font-size: 12px; letter-spacing: 0.08em; color: #7A9187;">5 godina na Airbnb-u</span>
+            </figcaption>
+            <span style="display: flex; align-items: center; gap: 10px; font-size: 12px; color: #7A9187;"><span style="color: #C9A87C; letter-spacing: 0.16em;">★★★★★</span>pre 2 nedelje</span>
+            <blockquote style="margin: 0; font-size: 15px; line-height: 1.65; color: #3A4A44;">Predivan boravak, sve bih preporučio. Mesto je besprekorno čisto, održavano i izgleda baš kao na fotografijama. Imalo je sve što mi je trebalo.</blockquote>
+          </figure>
+          <figure style="flex: 0 0 380px; margin: 0; padding: 28px 30px 30px; background: #E4E0D5; display: flex; flex-direction: column; gap: 14px;">
+            <figcaption style="display: flex; flex-direction: column; gap: 2px;">
+              <span style="font-family: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif; font-size: 22px; font-weight: 600; color: #16241F;">Stevo</span>
+              <span style="font-size: 12px; letter-spacing: 0.08em; color: #7A9187;">Bazel, Švajcarska</span>
+            </figcaption>
+            <span style="display: flex; align-items: center; gap: 10px; font-size: 12px; color: #7A9187;"><span style="color: #C9A87C; letter-spacing: 0.16em;">★★★★★</span>jun 2026.</span>
+            <blockquote style="margin: 0; font-size: 15px; line-height: 1.65; color: #3A4A44;">Divan boravak! Smeštaj je bio veoma čist, a prijava jednostavna. Komunikacija sa domaćinom je uvek bila brza i ljubazna.</blockquote>
+          </figure>
+          <figure style="flex: 0 0 380px; margin: 0; padding: 28px 30px 30px; background: #E4E0D5; display: flex; flex-direction: column; gap: 14px;">
+            <figcaption style="display: flex; flex-direction: column; gap: 2px;">
+              <span style="font-family: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif; font-size: 22px; font-weight: 600; color: #16241F;">Mina</span>
+              <span style="font-size: 12px; letter-spacing: 0.08em; color: #7A9187;">10 godina na Airbnb-u</span>
+            </figcaption>
+            <span style="display: flex; align-items: center; gap: 10px; font-size: 12px; color: #7A9187;"><span style="color: #C9A87C; letter-spacing: 0.16em;">★★★★★</span>jun 2026.</span>
+            <blockquote style="margin: 0; font-size: 15px; line-height: 1.65; color: #3A4A44;">Drugi put sam boravila u ovoj kućici iz bajke i već planiram sledeći dolazak na leto. Ne mogu dovoljno da preporučim.</blockquote>
+          </figure>
+          <figure style="flex: 0 0 380px; margin: 0; padding: 28px 30px 30px; background: #E4E0D5; display: flex; flex-direction: column; gap: 14px;">
+            <figcaption style="display: flex; flex-direction: column; gap: 2px;">
+              <span style="font-family: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif; font-size: 22px; font-weight: 600; color: #16241F;">Maja</span>
+              <span style="font-size: 12px; letter-spacing: 0.08em; color: #7A9187;">Cirih, Švajcarska</span>
+            </figcaption>
+            <span style="display: flex; align-items: center; gap: 10px; font-size: 12px; color: #7A9187;"><span style="color: #C9A87C; letter-spacing: 0.16em;">★★★★★</span>maj 2026.</span>
+            <blockquote style="margin: 0; font-size: 15px; line-height: 1.65; color: #3A4A44;">Lepo i udobno mesto za odmor i uživanje u životu punim plućima.</blockquote>
+          </figure>
+          <figure style="flex: 0 0 380px; margin: 0; padding: 28px 30px 30px; background: #E4E0D5; display: flex; flex-direction: column; gap: 14px;">
+            <figcaption style="display: flex; flex-direction: column; gap: 2px;">
+              <span style="font-family: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif; font-size: 22px; font-weight: 600; color: #16241F;">Andrei</span>
+              <span style="font-size: 12px; letter-spacing: 0.08em; color: #7A9187;">10 godina na Airbnb-u</span>
+            </figcaption>
+            <span style="display: flex; align-items: center; gap: 10px; font-size: 12px; color: #7A9187;"><span style="color: #C9A87C; letter-spacing: 0.16em;">★★★★★</span>februar 2026.</span>
+            <blockquote style="margin: 0; font-size: 15px; line-height: 1.65; color: #3A4A44;">Neverovatno i posebno mesto, toplo i prijatno. Romantično, privatno i dobro opremljeno.</blockquote>
+          </figure>
+          <figure style="flex: 0 0 380px; margin: 0; padding: 28px 30px 30px; background: #E4E0D5; display: flex; flex-direction: column; gap: 14px;">
+            <figcaption style="display: flex; flex-direction: column; gap: 2px;">
+              <span style="font-family: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif; font-size: 22px; font-weight: 600; color: #16241F;">Stefana</span>
+              <span style="font-size: 12px; letter-spacing: 0.08em; color: #7A9187;">Ebikon, Švajcarska</span>
+            </figcaption>
+            <span style="display: flex; align-items: center; gap: 10px; font-size: 12px; color: #7A9187;"><span style="color: #C9A87C; letter-spacing: 0.16em;">★★★★★</span>april 2026.</span>
+            <blockquote style="margin: 0; font-size: 15px; line-height: 1.65; color: #3A4A44;">Predivno mesto za odmor. Čisto i ljubazno.</blockquote>
+          </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="lokacija" style="position: relative; z-index: 2; background: #E4E0D5; color: #16241F; padding: 80px 40px 90px;" data-mobpad="1">
+    <div style="max-width: 1400px; margin: 0 auto;">
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: 60px; align-items: start; margin-bottom: 36px;" data-mobstack="1">
+        <div>
+          <p style="margin: 0 0 20px; font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: #7A9187;">Lokacija</p>
+          <h2 style="margin: 0 0 16px; font-family: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(34px, 4vw, 56px); line-height: 1.05;">Dučina, Kosmaj</h2>
+          <p style="margin: 0; font-size: 16px; line-height: 1.65; color: #4C5C55; max-width: 34ch;">Kosmaj je poznat kao vazdušna banja — mesto gde se sastaju ruže vetrova i vrlo čist vazduh. Oko sata vožnje od Beograda.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 0;">
+          <span style="display: flex; justify-content: space-between; gap: 20px; padding: 15px 0; border-bottom: 1px solid rgba(22,36,31,0.12); font-size: 16px;"><span style="color: #7A9187;">Od Beograda</span><span>55 km, oko 1 h</span></span>
+          <span style="display: flex; justify-content: space-between; gap: 20px; padding: 15px 0; border-bottom: 1px solid rgba(22,36,31,0.12); font-size: 16px;"><span style="color: #7A9187;">Do šume Kosmaj</span><span>10 min vožnje</span></span>
+          <span style="display: flex; justify-content: space-between; gap: 20px; padding: 15px 0; border-bottom: 1px solid rgba(22,36,31,0.12); font-size: 16px;"><span style="color: #7A9187;">Parking</span><span>Besplatan, uz kuću</span></span>
+        </div>
+      </div>
+      <div style="position: relative; width: 100%; aspect-ratio: 21 / 9; overflow: hidden; background: #D9D5C9;">
+        <iframe title="Mapa — Dučina, Kosmaj" src="https://www.openstreetmap.org/export/embed.html?bbox=20.4900%2C44.4200%2C20.6100%2C44.5100&amp;layer=mapnik&amp;marker=44.4667%2C20.5500" style="width: 100%; height: 100%; border: none; display: block; filter: saturate(0.85);" loading="lazy"></iframe>
+      </div>
+      <p style="margin: 14px 0 0; font-size: 13px; color: #7A9187;">Tačna adresa i uputstva za dolazak šalju se uz potvrdu rezervacije.</p>
+    </div>
+  </section>
+
+  <footer style="position: relative; z-index: 2; background: #1E3A34; color: #8AA096; padding: 0 40px 60px;">
+    <div style="max-width: 1400px; margin: 0 auto; border-top: 1px solid rgba(240,237,230,0.12); padding-top: 34px; display: flex; flex-wrap: wrap; align-items: center; gap: 24px; justify-content: space-between; font-size: 13px; line-height: 1;">
+      <span>KOSMAJ ZOMES — glamping, Kosmaj</span>
+      <span style="display: flex; align-items: center; gap: 26px; line-height: 1;"><a href="tel:+381600000000">+381 60 000 0000</a><a href="mailto:zdravo@kosmajzomes.rs">zdravo@kosmajzomes.rs</a></span>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  setupReveal() {
+    const sel = '#prostor img, #prostor h2, #prostor p, #opremljenost h2, #opremljenost p, #opremljenost span, #cene h2, #cene > div > div > div > div, #rezervacija h2, #rezervacija p, #recenzije h2, #recenzije > div p, #recenzije > div > div > div > div, #lokacija h2, #lokacija p, #lokacija iframe';
+    const els = Array.from(document.querySelectorAll(sel));
+    els.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(18px)';
+      el.style.transition = 'opacity 0.85s cubic-bezier(0.22,0.61,0.36,1), transform 0.85s cubic-bezier(0.22,0.61,0.36,1)';
+      el.style.willChange = 'opacity, transform';
+    });
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const sibs = Array.from(el.parentNode.children).indexOf(el);
+        el.style.transitionDelay = Math.min(sibs, 5) * 70 + 'ms';
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+        io.unobserve(el);
+      });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
+    els.forEach(el => io.observe(el));
+    this.io = io;
+  }
+
+  hideLoader() {
+    const el = document.querySelector('[data-loader]');
+    if (!el || el.__gone) return;
+    el.__gone = 1;
+    el.style.opacity = '0';
+    el.style.visibility = 'hidden';
+    setTimeout(() => { if (el.parentNode) el.parentNode.removeChild(el); }, 800);
+  }
+
+  componentDidMount() {
+    setTimeout(() => this.setupReveal(), 60);
+    const first = document.querySelector('[data-clip]');
+    const done = () => setTimeout(() => this.hideLoader(), 150);
+    if (first && first.readyState >= 2) done();
+    else if (first) { first.addEventListener('loadeddata', done, { once: true }); first.addEventListener('error', done, { once: true }); }
+    setTimeout(() => this.hideLoader(), 1600);
+    this.vids = Array.from(document.querySelectorAll('[data-clip]'));
+    this.layers = Array.from(document.querySelectorAll('[data-layer]'));
+    this.caps = Array.from(document.querySelectorAll('[data-cap]'));
+    this.dots = Array.from(document.querySelectorAll('[data-dot]'));
+    this.wrap = document.querySelector('[data-film-wrap]');
+    this.stage = document.querySelector('[data-stage]');
+    this.hint = document.querySelector('[data-scrollhint]');
+    this.target = 0;
+    this.current = 0;
+    this.raf = null;
+
+    this.vids.forEach(v => {
+      v.pause();
+      const reveal = () => { v.style.opacity = '1'; };
+      v.addEventListener('loadeddata', reveal);
+      v.addEventListener('seeked', reveal);
+      v.addEventListener('error', () => { v.style.display = 'none'; });
+      v.addEventListener('loadedmetadata', () => { try { v.currentTime = 0.05; } catch (e) {} });
+      if (v.readyState >= 2) reveal();
+    });
+
+    this.tick = () => {
+      if (this.wrap) {
+        const vh = window.innerHeight;
+        const total = this.wrap.offsetHeight - vh;
+        const y = Math.min(Math.max(-this.wrap.getBoundingClientRect().top, 0), Math.max(total, 1));
+        this.target = total > 0 ? y / total : 0;
+        if (this.hint) this.hint.style.opacity = this.target > 0.01 ? '0' : '1';
+        if (this.stage) {
+          const r = this.wrap.getBoundingClientRect();
+          const s = this.stage.style;
+          s.visibility = 'visible';
+          if (r.bottom <= vh) { s.position = 'absolute'; s.top = Math.max(this.wrap.offsetHeight - vh, 0) + 'px'; }
+          else if (r.top >= 0) { s.position = 'absolute'; s.top = '0px'; }
+          else { s.position = 'fixed'; s.top = '0px'; }
+        }
+        const d = this.target - this.current;
+        this.current += Math.abs(d) < 0.0005 ? d : d * 0.18;
+        this.apply(this.current);
+      }
+      this.raf = requestAnimationFrame(this.tick);
+    };
+
+    this.raf = requestAnimationFrame(this.tick);
+  }
+
+  apply(p) {
+    const n = this.vids.length;
+    const scaled = Math.min(Math.max(p, 0), 0.9999) * n;
+    const idx = Math.floor(scaled);
+    const local = scaled - idx;
+
+    this.vids.forEach((v, i) => {
+      let op = 0;
+      if (i === idx) op = (local > 0.5 && idx < n - 1) ? 1 - (local - 0.5) / 0.5 : 1;
+      else if (i === idx + 1 && local > 0.5) op = (local - 0.5) / 0.5;
+      if (this.layers && this.layers[i]) this.layers[i].style.opacity = String(op);
+      if (i === idx && op > 0.02 && v.readyState >= 1 && v.duration && !v.seeking) {
+        const t = local * v.duration * 0.985;
+        if (Math.abs(v.currentTime - t) > 0.06) { try { v.currentTime = t; } catch (e) {} }
+      }
+    });
+
+    this.caps.forEach((c, i) => {
+      const on = i === idx && (local < 0.5 || idx === this.vids.length - 1);
+      c.style.opacity = on ? '1' : '0';
+      c.style.transform = on ? 'translateY(0)' : 'translateY(14px)';
+    });
+
+    this.dots.forEach((d, i) => {
+      d.style.background = i === idx ? '#F0EDE6' : 'rgba(240,237,230,0.25)';
+    });
+  }
+
+  componentWillUnmount() {
+    if (this.io) this.io.disconnect();
+    if (this.raf) cancelAnimationFrame(this.raf);
+  }
+
+  renderVals() {
+    const MON = ['januar','februar','mart','april','maj','jun','jul','avgust','septembar','oktobar','novembar','decembar'];
+    const S = this.state || {};
+    const today = new Date(); today.setHours(0,0,0,0);
+    const view = S.view ? new Date(S.view) : new Date(today.getFullYear(), today.getMonth(), 1);
+    const from = S.from ? new Date(S.from) : null;
+    const to = S.to ? new Date(S.to) : null;
+    const fmt = (d) => d ? String(d.getDate()).padStart(2,'0') + '.' + String(d.getMonth()+1).padStart(2,'0') + '.' + d.getFullYear() + '.' : '';
+
+    const first = new Date(view.getFullYear(), view.getMonth(), 1);
+    const shift = (first.getDay() + 6) % 7;
+    const days = [];
+    for (let i = 0; i < 42; i++) {
+      const d = new Date(view.getFullYear(), view.getMonth(), 1 - shift + i);
+      const inMonth = d.getMonth() === view.getMonth();
+      const past = d < today;
+      const t = d.getTime();
+      const isFrom = from && t === from.getTime();
+      const isTo = to && t === to.getTime();
+      const inRange = from && to && t > from.getTime() && t < to.getTime();
+      let bg = 'transparent', col = inMonth ? '#F0EDE6' : 'rgba(240,237,230,0.22)', radius = '2px';
+      if (past && inMonth) col = 'rgba(240,237,230,0.2)';
+      if (inRange) { bg = 'rgba(201,168,124,0.22)'; }
+      if (isFrom || isTo) { bg = '#C9A87C'; col = '#16241F'; }
+      days.push({
+        label: inMonth ? String(d.getDate()) : '',
+        style: 'background:' + bg + ';color:' + col + ';border:none;border-radius:' + radius +
+               ';font-family:inherit;font-size:14px;padding:9px 0;cursor:' + (inMonth && !past ? 'pointer' : 'default') +
+               ';transition:background 0.2s ease,color 0.2s ease;visibility:' + (inMonth ? 'visible' : 'hidden'),
+        pick: (inMonth && !past) ? () => {
+          const cur = this.state.from ? new Date(this.state.from) : null;
+          if (!cur || this.state.to || d <= cur) this.setState({ from: t, to: null });
+          else this.setState({ to: t });
+        } : () => {}
+      });
+    }
+    const nights = from && to ? Math.round((to - from) / 86400000) : 0;
+
+    const sync = (el) => {
+      const ph = el.parentNode.querySelector('[data-dateph]');
+      if (ph) ph.style.opacity = el.value ? '0' : '1';
+      el.style.color = el.value ? '#F0EDE6' : 'transparent';
+    };
+    return {
+      menuOpen: !!S.menuOpen,
+      toggleMenu: () => this.setState({ menuOpen: !this.state.menuOpen }),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      calOpen: !!S.calOpen,
+      days: days,
+      monthLabel: MON[view.getMonth()] + ' ' + view.getFullYear(),
+      fromLabel: fmt(from),
+      toLabel: fmt(to),
+      nightsLabel: nights ? nights + (nights === 1 ? ' noć' : (nights < 5 ? ' noći' : ' noći')) : 'Izaberite datume',
+      openCal: () => this.setState({ calOpen: !this.state.calOpen, view: S.view || new Date(today.getFullYear(), today.getMonth(), 1).getTime() }),
+      closeCal: (e) => { if (e) e.stopPropagation(); this.setState({ calOpen: false }); },
+      clearCal: (e) => { if (e) e.stopPropagation(); this.setState({ from: null, to: null }); },
+      prevMonth: (e) => { e.stopPropagation(); this.setState({ view: new Date(view.getFullYear(), view.getMonth() - 1, 1).getTime() }); },
+      nextMonth: (e) => { e.stopPropagation(); this.setState({ view: new Date(view.getFullYear(), view.getMonth() + 1, 1).getTime() }); },
+      openPicker: (e) => {
+        const el = e.currentTarget;
+        try { el.showPicker(); } catch (err) {}
+      },
+      dolazakRef: (el) => { if (el && !el.__b) { el.__b = 1; el.addEventListener('change', () => sync(el)); } },
+      odlazakRef: (el) => { if (el && !el.__b) { el.__b = 1; el.addEventListener('change', () => sync(el)); } }
+    };
+  }
+}
+</script>
+</body>
+</html>
